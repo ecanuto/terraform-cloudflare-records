@@ -35,5 +35,5 @@ module "cygnus_dns_records" {
 
 ## Requirements
 
-terraform >= 1.1.0
+terraform >= 1.1.0  
 cloudflare >= 3.0.0
