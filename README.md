@@ -7,7 +7,7 @@ Terraform module to provision a CloudFlare DNS records.
 Using default address:
 
 ```hcl
-module "cygnus_dns_records" {
+module "mydomain_dns_records" {
   source = "github.com/ecanuto/terraform-cloudflare-records"
 
   zone    = "mydomain.com"
@@ -22,7 +22,7 @@ module "cygnus_dns_records" {
 One IP per record:
 
 ```hcl
-module "cygnus_dns_records" {
+module "mydomain_dns_records" {
   source = "github.com/ecanuto/terraform-cloudflare-records"
 
   zone    = "mydomain.com"
