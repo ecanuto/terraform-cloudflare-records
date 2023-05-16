@@ -9,8 +9,14 @@ variable "address" {
   description = "The default address to be used for DNS records."
 }
 
+variable "tags" {
+  type        = list(string)
+  default     = []
+  description = "The default tags to be used for all DNS records."
+}
+
 variable "records" {
-  type        = list(any)
+  type        = any
   default     = null
   description = <<-DOC
     name:
@@ -27,5 +33,7 @@ variable "records" {
     proxied:
       Whether the record gets Cloudflare's origin protection. 
       Default value: false.
+    tags:
+      Custom tags for the DNS record.
   DOC
 }
