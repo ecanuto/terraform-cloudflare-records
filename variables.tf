@@ -6,7 +6,7 @@ variable "zone" {
 variable "address" {
   type        = string
   default     = ""
-  description = "The default address to be used for DNS records."
+  description = "The default address to be used for all DNS records."
 }
 
 variable "tags" {
