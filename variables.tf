@@ -15,6 +15,12 @@ variable "tags" {
   description = "The default tags to be used for all DNS records."
 }
 
+variable "comment" {
+  type        = string
+  default     = ""
+  description = "The default comment to be used for all DNS records."
+}
+
 variable "records" {
   type        = any
   default     = null
@@ -33,6 +39,8 @@ variable "records" {
     proxied:
       Whether the record gets Cloudflare's origin protection. 
       Default value: false.
+    comment:
+      Comments or notes about the DNS record.
     tags:
       Custom tags for the DNS record.
   DOC
