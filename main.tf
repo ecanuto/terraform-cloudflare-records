@@ -24,7 +24,7 @@ resource "cloudflare_record" "default" {
   for_each = local.records
 
   zone_id  = data.cloudflare_zone.default.id
-  name     = each.value.name
+  name     = lookup(each.value, "name", var.zone)
   type     = lookup(each.value, "type", "A")
   value    = lookup(each.value, "value", var.address)
   priority = lookup(each.value, "priority", null)
