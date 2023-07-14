@@ -9,6 +9,12 @@ variable "address" {
   description = "The default address to be used for all DNS records."
 }
 
+variable "ttl" {
+  type        = number
+  default     = 300
+  description = "The default ttl to be used for all DNS records."
+}
+
 variable "tags" {
   type        = list(string)
   default     = []

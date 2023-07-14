@@ -29,7 +29,7 @@ resource "cloudflare_record" "default" {
   value    = lookup(each.value, "value", var.address)
   priority = lookup(each.value, "priority", null)
   proxied  = lookup(each.value, "proxied", false)
-  ttl      = lookup(each.value, "ttl", 600)
+  ttl      = lookup(each.value, "ttl", var.ttl)
   comment  = lookup(each.value, "comment", var.comment)
   tags     = lookup(each.value, "tags", var.tags)
 }
