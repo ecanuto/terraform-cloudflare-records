@@ -24,12 +24,12 @@ resource "cloudflare_record" "default" {
   for_each = local.records
 
   zone_id  = data.cloudflare_zone.default.id
-  name     = lookup(each.value, "name", var.zone)
-  type     = lookup(each.value, "type", "A")
-  value    = lookup(each.value, "value", var.address)
-  priority = lookup(each.value, "priority", null)
-  proxied  = lookup(each.value, "proxied", false)
-  ttl      = lookup(each.value, "ttl", var.ttl)
-  comment  = lookup(each.value, "comment", var.comment)
-  tags     = lookup(each.value, "tags", var.tags)
+  name     = try(each.value.name, var.zone)
+  type     = try(each.value.type, "A")
+  value    = try(each.value.value, var.address)
+  priority = try(each.value.priority, null)
+  proxied  = try(each.value.proxied, false)
+  ttl      = try(each.value.ttl, var.ttl)
+  comment  = try(each.value.comment, var.comment)
+  tags     = try(each.value.tags, var.tags)
 }
