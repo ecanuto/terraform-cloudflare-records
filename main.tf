@@ -33,6 +33,8 @@ resource "cloudflare_record" "default" {
   comment  = try(each.value.comment, var.comment)
   tags     = try(each.value.tags, var.tags)
 
+  allow_overwrite = try(each.value.allow_overwrite, false)
+
   dynamic "data" {
     for_each = try([each.value.data], [])
     content {
