@@ -26,7 +26,7 @@ resource "cloudflare_record" "default" {
   zone_id  = data.cloudflare_zone.default.id
   name     = try(each.value.name, var.zone)
   type     = try(each.value.type, "A")
-  value    = try(each.value.value, var.address)
+  value    = try(each.value.value, null)
   priority = try(each.value.priority, null)
   proxied  = try(each.value.proxied, false)
   ttl      = try(each.value.ttl, var.ttl)

@@ -3,12 +3,6 @@ variable "zone" {
   description = "The DNS zone name in which record will be added."
 }
 
-variable "address" {
-  type        = string
-  default     = ""
-  description = "The default address to be used for all DNS records."
-}
-
 variable "ttl" {
   type        = number
   default     = 300
