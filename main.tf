@@ -32,4 +32,13 @@ resource "cloudflare_record" "default" {
   ttl      = try(each.value.ttl, var.ttl)
   comment  = try(each.value.comment, var.comment)
   tags     = try(each.value.tags, var.tags)
+
+  dynamic "data" {
+    for_each = try([each.value.data], [])
+    content {
+      tag   = try(data.value.tag, null)
+      flags = try(data.value.flags, null)
+      value = try(data.value.value, null)
+    }
+  }
 }
