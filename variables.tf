@@ -5,7 +5,7 @@ variable "zone" {
 
 variable "ttl" {
   type        = number
-  default     = 300
+  default     = null
   description = "The default ttl to be used for all DNS records."
 }
 
