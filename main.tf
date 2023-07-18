@@ -11,8 +11,16 @@ terraform {
 
 locals {
   records = {
-    for idx, record in flatten(var.records) :
-      "record-${idx}" => record
+    for record in flatten(var.records) :
+    try(
+      record.key,
+      md5(jsonencode([
+        try(record.type, null),
+        try(record.name, var.zone),
+        try(record.value, null),
+        try(record.data, null)
+      ]))
+    ) => record
   }
 }
 
